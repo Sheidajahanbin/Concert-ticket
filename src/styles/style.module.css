@@ -1,0 +1,56 @@
+body {
+  background: linear-gradient(-45deg, #4e413d, #596721, #3b6371, #356f61);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+  width: 100%;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.section-stage {
+  width: 800px;
+  height: 60px;
+  border: 3px solid rgb(45, 43, 43);
+  margin: 30px auto;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 10px 0px 15px 5px rgba(0, 0, 0, 0.45) inset;
+}
+h1 {
+  margin-bottom: 10px;
+  color: rgb(36, 35, 35);
+}
+.btn-CountSum {
+  display: flex;
+  justify-content: center;
+}
+.btn-count,
+.btn-sum {
+  width: 180px;
+  height: 45px;
+  border-radius: 10px;
+  box-shadow: 15px 2px 25px 5px rgba(0, 0, 0, 0.75) inset;
+  margin-right: 50px;
+  font-size: x-large;
+}
+.chair-flex {
+  width: 1200px;
+  height: 500px;
+  border: 1px solid #111010;
+  display: flex;
+  margin:20px auto;
+}
+.chair {
+  border: 1px solid #111010;
+  width: 300px;
+  height: 300px;
+}

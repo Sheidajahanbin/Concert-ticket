@@ -9,9 +9,10 @@ import Chair from "./Chair";
 // import Chairs from "./Tickets";
 // import Tickets from "./Tickets";
 
-const initState = {
+const initState1 = {
   chairs: [],
-
+  sumPrice: 0,
+  sumReserv: 0,
   errorMassage: "",
 };
 
@@ -26,8 +27,7 @@ const reducer = (state, action) => {
   }
 };
 const ContainerTicket = () => {
-  const [data, dispatch] = useReducer(reducer, initState);
-  const temp = [];
+  const [data, dispatch] = useReducer(reducer, initState1);
   useEffect(() => {
     axios
       .get("/chairs.json")
@@ -37,7 +37,6 @@ const ContainerTicket = () => {
 
       .catch((error) => dispatch({ type: "fail", error: error.message }));
   }, []);
-  console.log(data.chairs);
   return (
     <>
       <Stage />
@@ -53,7 +52,14 @@ const ContainerTicket = () => {
           ) : (
             data.chairs
               .filter((chair) => chair.section === "A")
-              .map((chair) => <Chair key={chair.number} chairinfo={chair} />)
+              .map((chair) => (
+                <Chair
+                  key={chair.number}
+                  chairinfo={chair}
+                  sumPrice={data.sumPrice}
+                  sumReserv={data.sumReserv}
+                />
+              ))
           )}{" "}
         </div>
         <div className={style["chair-B"]}>
@@ -62,7 +68,14 @@ const ContainerTicket = () => {
           ) : (
             data.chairs
               .filter((chair) => chair.section === "B")
-              .map((chair) => <Chair  key={chair.number} chairinfo={chair} />)
+              .map((chair) => (
+                <Chair
+                  key={chair.number}
+                  chairinfo={chair}
+                  sumPrice={data.sumPrice}
+                  sumReserv={data.sumReserv}
+                />
+              ))
           )}{" "}
         </div>
         <div className={style["chair-C"]}>
@@ -71,7 +84,14 @@ const ContainerTicket = () => {
           ) : (
             data.chairs
               .filter((chair) => chair.section === "C")
-              .map((chair) => <Chair key={chair.number} chairinfo={chair} />)
+              .map((chair) => (
+                <Chair
+                  key={chair.number}
+                  chairinfo={chair}
+                  sumPrice={data.sumPrice}
+                  sumReserv={data.sumReserv}
+                />
+              ))
           )}{" "}
         </div>
         <div className={style["chair-D"]}>
@@ -80,7 +100,14 @@ const ContainerTicket = () => {
           ) : (
             data.chairs
               .filter((chair) => chair.section === "D")
-              .map((chair) => <Chair key={chair.number} chairinfo={chair}/>)
+              .map((chair) => (
+                <Chair
+                  key={chair.number}
+                  chairinfo={chair}
+                  sumPrice={data.sumPrice}
+                  sumReserv={data.sumReserv}
+                />
+              ))
           )}{" "}
         </div>
       </div>

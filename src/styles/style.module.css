@@ -45,12 +45,49 @@ h1 {
 .chair-flex {
   width: 1200px;
   height: 500px;
-  border: 1px solid #111010;
-  display: flex;
-  margin:20px auto;
+  display: grid;
+  grid-template-columns: 300px 550px 300px;
+
+  /* /* justify-content: center; */
+  align-items: center;
+  margin: 10px auto;
+  gap: 10px;
 }
-.chair {
-  border: 1px solid #111010;
-  width: 300px;
-  height: 300px;
+.chair-flex div {
+  border: 1px solid #2c2a2a;
+  padding: 4px;
+  /* max-height: 250px; */
+  background-color: transparent;
+  border-radius: 5px;
+  text-align: center;
+}
+.chair-A {
+  grid-area: 1/2;
+}
+
+.chair-D {
+  grid-area: 2/2;
+}
+.btn-Chair {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin: 2px;
+  box-shadow: 15px 2px 25px 5px rgba(0, 0, 0, 0.75) inset;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+}
+.tietle-price {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  z-index: 1;
+  display: none;
+  /* background-color: aliceblue; */
+}
+.btn-Chair:hover .tietle-price {
+  display: block;
+  background-color:whitesmoke
+
 }

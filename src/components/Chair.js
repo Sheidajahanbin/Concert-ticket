@@ -1,23 +1,36 @@
 import React from "react";
 import style from "../styles/style.module.css";
 import { useReducer } from "react";
+import { click } from "@testing-library/user-event/dist/click";
 const initState2 = {
-  clickCunter: 0,
-  reserv: "",
+  clickCunter1: 0,
+  number: 0,
+  click: 0,
+  state: "",
+
 };
 const reducer = (state, action) => {
-  switch (action.type) {
+  switch (action.click) {
     case 0:
-      return { ...state, clickCunter: action.clickCunter + 1 };
+      return {
+        ...state,
+        click: action.click + 1,
+        state: "level1",
+      };
 
     case 1:
-      return { ...state, clickCunter: action.set.clickCunter + 1 };
+      return {
+        ...state,
+        click: action.click + 1,
+        state: "level2",
+      };
 
     case 2:
-      return { ...state, clickCunter: action.set.clickCunter + 1 };
-
-    case 3:
-      return { ...state, clickCunter: action.set.clickCunter + 1 };
+      return {
+        ...state,
+        click: action.click + 1,
+        state: "level3",
+      };
     default:
       return state;
   }
@@ -26,14 +39,20 @@ const reducer = (state, action) => {
 const Chair = ({ chairinfo, sumPrice, sumReserv }) => {
   const [set, dispach] = useReducer(reducer, initState2);
   const reserHandler = () => {
-  const btn= document.getElementsByTagName("button");
-    if (set.clickCunter === 1) {
-     btn.style.background="red";
+    if (set.click < 3) {
+      dispach({ click: set.click });
+    } else {
+      alert("این صندلی قبلا رزرو شده است!");
+    }
+    if (set.click === 2) {
+      // sumReserv((prvenumber) => prvenumber + 1);
+      // dispach({click:2 ,number:set.number}) ;
+  
     }
   };
   return (
     <>
-      <button className={style["btn-Chair"]} onClick={reserHandler}>
+      <button className={style[`btn-Chair${set.state}`]} onClick={reserHandler}>
         {chairinfo.number}
         <div className={style["tietle-price"]}>{chairinfo.price} </div>
       </button>

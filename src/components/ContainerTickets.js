@@ -14,6 +14,7 @@ const initState1 = {
   sumPrice: 0,
   sumReserv: 0,
   errorMassage: "",
+  number: 0,
 };
 
 const reducer = (state, action) => {
@@ -22,6 +23,7 @@ const reducer = (state, action) => {
       return { ...state, chairs: action.postInfo };
     case "fail":
       return { ...state, errorMassage: action.error };
+      
     default:
       return state;
   }
@@ -42,8 +44,8 @@ const ContainerTicket = () => {
       <Stage />
 
       <div className={style["btn-CountSum"]}>
-        <button className={style["btn-count"]}>count :</button>
-        <button className={style["btn-sum"]}>sum :</button>
+        <button className={style["btn-count"]}>count :{data.sumReserv}</button>
+        <button className={style["btn-sum"]}>sum :{data.sumPrice}</button>
       </div>
       <div className={style["chair-flex"]}>
         <div className={style["chair-A"]}>

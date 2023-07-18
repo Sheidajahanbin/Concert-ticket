@@ -3,11 +3,9 @@ import style from "../styles/style.module.css";
 import { useReducer } from "react";
 import { click } from "@testing-library/user-event/dist/click";
 const initState2 = {
-  clickCunter1: 0,
   number: 0,
   click: 0,
   state: "",
-
 };
 const reducer = (state, action) => {
   switch (action.click) {
@@ -45,9 +43,8 @@ const Chair = ({ chairinfo, sumPrice, sumReserv }) => {
       alert("این صندلی قبلا رزرو شده است!");
     }
     if (set.click === 2) {
-      // sumReserv((prvenumber) => prvenumber + 1);
-      // dispach({click:2 ,number:set.number}) ;
-  
+      // // sumReserv((prvenumber) => prvenumber + 1);
+      // dispach({click:2 ,sumPrice:chairinfo.price}) ;
     }
   };
   return (
